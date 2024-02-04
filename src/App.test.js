@@ -1,11 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("testing input box", () => {
+test("On event change test", () => {
   render(<App />);
-  let checkInput = screen.getByRole("textbox");
-  let checkInputPlaceholder = screen.getByPlaceholderText("Enter User Name");
-  
-  expect(checkInput).toBeInTheDocument();
-  expect(checkInputPlaceholder).toBeInTheDocument();
+  let input = screen.getByRole("textbox");
+  fireEvent.change(input, { target: { value: "abc" } });
+  expect(input.value).toBe("atest");
 });

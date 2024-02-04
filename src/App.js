@@ -1,12 +1,18 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [data, setData] = useState("");
   return (
     <div className="App">
-      <p>Name</p>
-      <input type="text" placeholder="Enter User Name" name="Username" />
-      <p>Age</p>
-      <input type="number" placeholder="Enter Number" />
+      <h1>Test on Change Event with Input Text</h1>
+      <input
+        type="text"
+        value={data}
+        onChange={(e) => {
+          setData(e.target.value + "test");
+        }}
+      />
     </div>
   );
 }
